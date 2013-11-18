@@ -8,9 +8,9 @@
 
 	{{ Form::open(array('url' => 'pages', 'method' => 'post')) }}
 
-	{{ Form::label('name', 'Name') }}
-	{{ Form::text('name', Input::old('name')) }}
-	{{ $errors->first('name','<p class="error">:message</p>') }}
+	{{ Form::label('title', 'Page Title') }}
+	{{ Form::text('title', Input::old('title')) }}
+	{{ $errors->first('title','<p class="error">:message</p>') }}
 
 	<br class="group" />
 	{{ Form::reset('Reset') }}

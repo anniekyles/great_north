@@ -34,6 +34,15 @@ Route::post('pages', function(){
 	}
 });
 
+Route::get('pages/contact', function(){
+	return View::make('contact');
+});
+Route::post('pages/contact', function(){
+
+	//change this to an email confirmation page when one is made
+	return Redirect::to('pages/1');
+});
+
 Route::get('pages/{id}', function($id){
 	return View::make('pages')->with('page',Page::find($id));
 });
@@ -70,12 +79,4 @@ Route::get('logout',function(){
 
 //_________________________________CONTACTING (EMAIL)____________________________
 
-Route::get('contact', function(){
-	return View::make('contact');
-});
 
-Route::post('contact', function(){
-
-	//change this to an email confirmation page when one is made
-	return Redirect::to('pages/1');
-});

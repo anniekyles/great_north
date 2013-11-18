@@ -48,20 +48,19 @@
                     <li>
                         <span class="a"><i class="fa fa-wrench"></i> Services</span>
                         <ul id="extra-services">
-                        	<!-- use a foreach loop to render extra-services kind of like this -->
-							<!-- @foreach(Page::all() as $page)
-							<li>{{ HTML::link('pages/'.$page->id, $page->name) }}</li>
-							@endforeach -->
-                            <li><a href="#">Warrant of Fitness</a></li>
-                            <li><a href="#">Servicing</a></li>
-                            <li><a href="#">Brakes</a></li>
-                            <li><a href="#">Tyres &amp; Wheel Alignment</a></li>
-                            <li><a href="#">Battery</a></li>
-                            <li><a href="#">Exhaust &amp; Muffler</a></li>
+
+                        	<!-- use a foreach loop to render extra-services  -->
+
+							@foreach(Page::all() as $page)
+                                @if($page->services == 1)
+                                <li>{{ HTML::link('pages/'.$page->id, $page->title) }}</li>
+                                @endif
+
+							@endforeach
                         </ul>
                     </li>
                     <li><a href="{{ URL::to('pages/2')}}"><i class="fa fa-info-circle"></i> About</a></li>
-                    <li><a href="{{ URL::to('contact')}}"><i class="fa fa-envelope"></i> Contact</a></li>
+                    <li><a href="{{ URL::to('pages/contact')}}"><i class="fa fa-envelope"></i> Contact</a></li>
                 </ul>
             </nav>
         </header>

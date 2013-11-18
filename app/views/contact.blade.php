@@ -5,8 +5,7 @@
 <article class="col1">
     <h1>Contact</h1>
     <h3>We are here:</h3>
-    <a href="https://maps.google.co.nz/maps?q=123+great+north+road+auckland&ie=UTF-8&hq=&hnear=0x6d0d47be53137737:0xc952d31a1aa37c94,123+Great+North+Rd,+Grey+Lynn,+Auckland+1021&gl=nz&ei=EVOAUvS0KO2IiQfyu4DABw&ved=0CCwQ8gEwAA"><img src="img/placeholder.jpg" alt="placeholder picture" width="100%"></a>
-    <caption>Click on the image to go to Google Maps</caption>
+    <iframe width="100%" height="550" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.nz/maps?q=123+great+north+road+auckland&amp;ie=UTF8&amp;hq=&amp;hnear=123+Great+North+Rd,+Grey+Lynn,+Auckland+1021&amp;gl=nz&amp;t=h&amp;z=14&amp;ll=-36.862165,174.749711&amp;output=embed"></iframe><br /><caption><a href="http://goo.gl/maps/YSjIp" style="color:#0000FF;text-align:left">View Larger Map</a></caption>
 </article>
 <article class="col2">
 
@@ -22,7 +21,7 @@
     {{ Form::label('subject', 'Subject '), $errors->first('subject','<span class="error">:message</p>') }}
     {{ Form::text('subject', null, array('placeholder'=>'The email\'s subject')) }}
     <br>
-    {{ Form::label('message', 'Subject '), $errors->first('message','<p class="error">:message</p>') }}
+    {{ Form::label('message', 'Message '), $errors->first('message','<p class="error">:message</p>') }}
     {{ Form::textarea('message', null, array('placeholder'=>'The email\'s message')) }}
     <br>
     {{ Form::reset('Reset') }}

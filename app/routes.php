@@ -46,6 +46,16 @@ Route::post('pages/contact', function(){
 Route::get('pages/{id}', function($id){
 	return View::make('pages')->with('page',Page::find($id));
 });
+Route::put('pages/{id}', function($id){
+
+	$updatedField = Input::get("field");
+	$oPage = Page::find($id);
+	$oPage->$updatedField = Input::get("value");
+	$oPage->save();
+
+	return Input::get("value");
+	//return View::make('pages')->with('page',Page::find($id));
+});
 
 //________________________________USER ROUTES_____________________________________
 
@@ -60,7 +70,7 @@ Route::get('login', function(){
 
 Route::post('login', function(){
 	$aDetails = array(
-		'email' => Input::get('email'),
+		'username' => Input::get('username'),
 		'password' => Input::get('password')
 		);
 

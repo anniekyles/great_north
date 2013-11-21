@@ -11,6 +11,10 @@
 
 	{{HTML::style("css/normalize.min.css")}}
 	{{HTML::style("css/main.css")}}
+    {{ HTML::style('css/jquery.cleditor.css') }}
+    <link href='http://fonts.googleapis.com/css?family=Cutive' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
+
 
     <!-- all the icons -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
@@ -29,8 +33,21 @@
     <!-- <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script> -->
 </head>
 <body>
+@if(Auth::check())
+    <div id="instructions">
+        <h2>Welcome to the admin side</h2>
+        <h4>How to edit website:</h4>
+        <p>Click text to edit.</p>
+        <p>Drag new image onto old one to change.</p>
+        <p>{{HTML::link('pageCreate','Click here to add a new page.', array('class'=>''))}}</p>
+        <p>Changes made to the website will be live as soon as you see them.</p>
+    </div>
+@endif
     <div class="header-container">
-        <header id="header" class="wrapper clearfix">
+
+    <header id="header" class="wrapper clearfix">
+
+
             <div id="head-inner">
                 <?php // find a way for this to work in the contact tab ?>
                 <img src="../img/logo.png" alt="Great North Auto">
@@ -75,13 +92,11 @@
 
     <div class="footer-container">
         <footer class="wrapper">
-            <p>Website created by Annie Kyles, who can be found at <a href="http://www.anniekyles.com">anniekyles.com</a>  |
+            <p>Website created by Annie Kyles, who can be found at <a href="http://www.anniekyles.com">anniekyles.com</a></p>
+            <p>
                 @if(Auth::check())
                     {{HTML::link('logout','Log Out', array('class'=>'button right'))}}
-                    {{HTML::link('users/'.Auth::user()->id,'Your Details', array('class'=>'button right'))}}
-                    @if(Auth::user()->admin === 1)
-                        {{HTML::link('pages/create','Create a New \'Services\' Page', array('class'=>'button right'))}}
-                    @endif
+                    {{HTML::link('pages/create','Create a New \'Services\' Page', array('class'=>'button right'))}}
                 @else
                     {{HTML::link('login','Admin Login', array('class'=>''))}}
                 @endif
@@ -96,6 +111,8 @@
 
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
 	{{ HTML::script("js/plugins.js") }}
+    {{HTML::script("js/jquery.jeditable.js")}}
+    {{HTML::script("js/jquery.cleditor.js")}}
 	{{ HTML::script("js/main.js") }}
     {{ HTML::script("js/formValidation.js") }}
 

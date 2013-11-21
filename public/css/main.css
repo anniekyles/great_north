@@ -20,6 +20,10 @@ body {
     line-height: 1.4;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Cutive", serif;
+}
+
 ::-moz-selection {
     background: #b3d4fc; /* baby blue*/
     text-shadow: none;
@@ -66,7 +70,7 @@ textarea {
    ========================================================================== */
 
 body {
-    font: medium Helvetica, 'Helvetica Neue', 'Neue Arial';
+    font: medium 'Cabin', Helvetica, 'Helvetica Neue', 'Neue Arial';
 }
 
 .main-container{
@@ -117,6 +121,11 @@ caption {
     font-size: small;
 }
 
+#instructions {
+    margin-top: 2em;
+    margin-left: 2em;
+}
+
 /* ===================
     FORM
    =================== */
@@ -126,7 +135,7 @@ input, textarea {
     padding: 4px;
 }
 
-input[type=text], textarea {
+input[type=text], input[type=password], textarea {
     width: 100%;
     margin-bottom: 15px;
 }
@@ -216,7 +225,11 @@ a:hover, nav a:hover {
 }
 
 .main article h1 {
-    font-size: 2em;
+    font-size: 1.7em;
+}
+
+.main article h2 {
+    font-size: 1.3em;
 }
 
 .main aside {

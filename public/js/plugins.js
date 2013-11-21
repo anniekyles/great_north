@@ -24,3 +24,10 @@
 // INFINITE LOOP !!
 // for different screen widths:
 // (function () {var url = window.location + '';url=url.replace(':', '%3a').replace('/', '%2f');window.location = 'http://quirktools.com/screenfly/#u=' + url + '&w=1440&h=900&a=1&s=1';}());
+
+
+// // Trying to post info to pages table in database??
+//  $(document).ready(function() {
+//      $('.edit').editable('http://localhost/06Industry/GreatNorth-Laravel/public/pages.php');
+//      $('.edit_area').editable('http://localhost/06Industry/GreatNorth-Laravel/public/pages.php');
+//  });

@@ -9,8 +9,8 @@
     <meta name="viewport" content="width=device-width">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
-	{{HTML::style("css/normalize.min.css")}}
-	{{HTML::style("css/main.css")}}
+	{{ HTML::style("css/normalize.min.css") }}
+	{{ HTML::style("css/main.css") }}
     {{ HTML::style('css/jquery.cleditor.css') }}
     <link href='http://fonts.googleapis.com/css?family=Cutive' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
@@ -39,7 +39,7 @@
         <h4>How to edit website:</h4>
         <p>Click text to edit.</p>
         <p>Drag new image onto old one to change.</p>
-        <p>{{HTML::link('pageCreate','Click here to add a new page.', array('class'=>''))}}</p>
+        <p>{{ HTML::link('pageCreate','Click here to add a new \'Services\' page.') }}</p>
         <p>Changes made to the website will be live as soon as you see them.</p>
     </div>
 @endif
@@ -49,8 +49,8 @@
 
 
             <div id="head-inner">
-                <?php // find a way for this to work in the contact tab ?>
-                <img src="../img/logo.png" alt="Great North Auto">
+
+                <img src="{{{ URL::to('img/logo.png') }}}"  alt="Great North Auto">
                 <div id="contact-details">
                     <h2>Call us: 09 555 3321</h2>
                     <h2>123 Great North Road, Newton</h2>
@@ -92,13 +92,14 @@
 
     <div class="footer-container">
         <footer class="wrapper">
-            <p>Website created by Annie Kyles, who can be found at <a href="http://www.anniekyles.com">anniekyles.com</a></p>
+            <p>Website created by Annie Kyles <a href="http://www.anniekyles.com">anniekyles.com</a></p>
             <p>
                 @if(Auth::check())
-                    {{HTML::link('logout','Log Out', array('class'=>'button right'))}}
-                    {{HTML::link('pages/create','Create a New \'Services\' Page', array('class'=>'button right'))}}
+                    You are logged in as an administrator
+                    {{ HTML::link('pages/create','Create a New \'Services\' Page', array('class'=>'button right')) }}
+                    {{ HTML::link('logout','Log Out', array('class'=>'button right')) }}
                 @else
-                    {{HTML::link('login','Admin Login', array('class'=>''))}}
+                    {{ HTML::link('login','Admin Login', array('class'=>'')) }}
                 @endif
             </p>
         </footer>
@@ -111,8 +112,8 @@
 
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
 	{{ HTML::script("js/plugins.js") }}
-    {{HTML::script("js/jquery.jeditable.js")}}
-    {{HTML::script("js/jquery.cleditor.js")}}
+    {{ HTML::script("js/jquery.jeditable.js") }}
+    {{ HTML::script("js/jquery.cleditor.js") }}
 	{{ HTML::script("js/main.js") }}
     {{ HTML::script("js/formValidation.js") }}
 

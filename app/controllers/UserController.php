@@ -2,15 +2,15 @@
 
 class UserController extends BaseController {
 	public function __construct(){
-		$this->beforeFilter('auth',array('only'=>array('show','update','edit')));
+		$this->beforeFilter('auth',array('only'=>array('create')));
 
 		if(Auth::check()){
-			$this->beforeFilter('permission:'.Request::segment(2),array('only'=>array('show','update','edit')));
+			$this->beforeFilter('permission:'.Request::segment(2),array('only'=>array('create')));
 		};
 	}
 
 	public function show($id){
-		return View::make('user')->with('user',User::find($id));
+		// return View::make('user')->with('user',User::find($id));
 	}
 
 	public function create(){
@@ -19,7 +19,7 @@ class UserController extends BaseController {
 
 	public function store(){
 		$aRules = array(
-			'name' => 'required|alpha',
+			'username' => 'required',
 			'password' => 'required|confirmed'
 		);
 
@@ -40,34 +40,34 @@ class UserController extends BaseController {
 
 			User::create($aDetails);
 
-			return Redirect::to('pages/1'); 
+			return Redirect::to('login');
 		}
 	}
 
-	public function edit($id){
-		return View::make('userEdit')->with('user',User::find($id));
-	}
+	// public function edit($id){
+		// return View::make('userEdit')->with('user',User::find($id));
+	// }
 
 	public function update(){
-		$aRules = array(
-			// 'unique' syntax is unique:table,column,except
-			'email' => 'required|email|unique:users,email,'.$id,
-			'firstname' => 'required|alpha',
-			'lastname' => 'required|alpha'
-		);
-		$validator = Validator::make(Input::all(),$aRules);
+		// $aRules = array(
+		// 	// 'unique' syntax is unique:table,column,except
+		// 	'email' => 'required|email|unique:users,email,'.$id,
+		// 	'firstname' => 'required|alpha',
+		// 	'lastname' => 'required|alpha'
+		// );
+		// $validator = Validator::make(Input::all(),$aRules);
 
-		if($validator->fails()){
-			return Redirect::to('users/'.$id.'/edit')->withErrors($validator)->withInput();
-		}else{
-			$oUser = User::find($id);
+		// if($validator->fails()){
+		// 	return Redirect::to('users/'.$id.'/edit')->withErrors($validator)->withInput();
+		// }else{
+		// 	$oUser = User::find($id);
 
-			// 'fill()' extracts the information from
-			$oUser->fill(Input::all());
-			$oUser->save();
+		// 	// 'fill()' extracts the information from
+		// 	$oUser->fill(Input::all());
+		// 	$oUser->save();
 
-			return Redirect::to('users/'.$id);
-		}
+		// 	return Redirect::to('users/'.$id);
+		// }
 	}
 
 

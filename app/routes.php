@@ -22,7 +22,12 @@ Route::get('pages/create', function(){
 })->before('admin.permission');
 
 Route::post('pages', function(){
-	$aRules = array('name'=>'required');
+	$aRules = array(
+		'title'=>'required',
+		'content'=>'required',
+		'photo'=>'required',
+		'caption'=>'required',
+		);
 	$validaor = Validator::make(Input::all(),$aRules);
 
 	if($validaor->fails()){

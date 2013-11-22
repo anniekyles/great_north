@@ -39,7 +39,7 @@
         <h4>How to edit website:</h4>
         <p>Click text to edit.</p>
         <p>Drag new image onto old one to change.</p>
-        <p>{{ HTML::link('pageCreate','Click here to add a new \'Services\' page.') }}</p>
+        <p>{{ HTML::link('pageCreate','Click here to add a new page.') }}</p>
         <p>Changes made to the website will be live as soon as you see them.</p>
     </div>
 @endif
@@ -92,11 +92,11 @@
 
     <div class="footer-container">
         <footer class="wrapper">
-            <p>Website created by Annie Kyles <a href="http://www.anniekyles.com">anniekyles.com</a></p>
+            <p>This website was crafted using <a href="http://laravel.com/">Laravel 4</a> by Annie Kyles <a href="http://www.anniekyles.com">anniekyles.com</a></p>
             <p>
                 @if(Auth::check())
-                    You are logged in as an administrator
-                    {{ HTML::link('pages/create','Create a New \'Services\' Page', array('class'=>'button right')) }}
+                    You are logged in as {{ Auth::user()->username }}
+                    {{ HTML::link('pages/create','Create a new page', array('class'=>'button right')) }}
                     {{ HTML::link('logout','Log Out', array('class'=>'button right')) }}
                 @else
                     {{ HTML::link('login','Admin Login', array('class'=>'')) }}

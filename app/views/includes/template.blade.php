@@ -38,7 +38,7 @@
         <h2>Welcome to the admin side</h2>
         <h4>How to edit website:</h4>
         <p>Click text to edit.</p>
-        <p>Drag new image onto old one to change.</p>
+        <p>"Choose File" to upload a new photo</p>
         <p>{{ HTML::link('pageCreate','Click here to add a new page.') }}</p>
         <p>Changes made to the website will be live as soon as you see them.</p>
     </div>

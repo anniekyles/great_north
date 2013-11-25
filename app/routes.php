@@ -23,25 +23,30 @@ Route::get('pages/create', function(){
 
 Route::post('pages', function(){
 	$aRules = array(
-		'title'=>'required',
+		'title'=>'required|unique:pages',
 		'content'=>'required',
 		'photo'=>'required',
 		'caption'=>'required',
 		);
-	$validaor = Validator::make(Input::all(),$aRules);
+	$validator = Validator::make(Input::all(),$aRules);
 
-	if($validaor->fails()){
-		return Redirect::to('pages/create');
+	if($validator->fails()){
+		return Redirect::to('pages/create')->withErrors($validator)->withInput();;
 	} else {
 		$Page = Page::create(Input::all());
 		$Page->save();
-		return Redirect::to('pages/1');
+
+		Input::file('photo')->move("img", "image_".$Page->id.".jpg");
+		$Page->image = "image_".$Page->id.".jpg";
+		$Page->save();
+		return Redirect::to('pages/'.$Page->id);
 	}
 });
 
 Route::get('pages/contact', function(){
 	return View::make('contact');
 });
+
 Route::post('pages/contact', function(){
 
 	//change this to an email confirmation page when one is made
@@ -51,15 +56,25 @@ Route::post('pages/contact', function(){
 Route::get('pages/{id}', function($id){
 	return View::make('pages')->with('page',Page::find($id));
 });
+
 Route::put('pages/{id}', function($id){
 
-	$updatedField = Input::get("field");
 	$oPage = Page::find($id);
-	$oPage->$updatedField = Input::get("value");
-	$oPage->save();
+	if(Input::hasFile("image")){
 
-	return Input::get("value");
-	//return View::make('pages')->with('page',Page::find($id));
+		Input::file('image')->move("img", $oPage->image);
+		return Redirect::to('pages/'.$id);
+	}else{
+		$updatedField = Input::get("field");
+
+		$oPage->$updatedField = Input::get("value");
+		$oPage->save();
+
+		return Input::get("value");
+
+	}
+
+
 });
 
 //________________________________USER ROUTES_____________________________________

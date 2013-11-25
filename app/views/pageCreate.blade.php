@@ -12,9 +12,9 @@
 	{{ Form::text('title') }}
 	{{ $errors->first('title','<p class="error">:message</p>') }}
 
-	{{ Form::label('Content', 'Page Content') }}
-	{{ Form::textarea('Content') }}
-	{{ $errors->first('Content','<p class="error">:message</p>') }}
+	{{ Form::label('content', 'Page Content') }}
+	{{ Form::textarea('content') }}
+	{{ $errors->first('content','<p class="error">:message</p>') }}
 
 	{{ Form::label('photo', 'Page Photo') }}
 	{{ Form::file('photo') }}

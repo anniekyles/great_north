@@ -8,10 +8,12 @@
 		$authCanEditTitle = '';
 		$authCanEditCaption = '';
 		$authCanEditContent = '';
+		$authCanEditImage = '';
 		if(Auth::check()){
 			$authCanEditTitle = ' data-editable="title"';
 			$authCanEditCaption = ' data-editable="caption"';
 			$authCanEditContent = ' data-editable="content"';
+			$authCanEditImage = ' data-editable="image"';
 		}
 	?>
 
@@ -22,7 +24,14 @@
         	<h1 {{ $authCanEditTitle }} >{{{ $page->title }}}</h1>
     @endif
 
-    <img src="{{{ URL::to('img/'.$page->image) }}}" alt="placeholder photo" width="100%">
+    <img src="{{{ URL::to('img/'.$page->image) }}}" alt="placeholder photo" width="100%"  {{ $authCanEditImage }} >
+    @if(Auth::check())
+			{{ Form::open(array('url' => 'pages/'.$page->id, 'method' => 'put', "files"=>true)) }}
+			<br>
+			{{ Form::file("image") }}
+			{{ Form::submit('Upload Photo', array('id' => 'submit')) }}
+			{{ Form::close() }}
+	@endif
     <p class="edit" {{ $authCanEditCaption }} >{{{ $page->caption }}}</p>
 </article>
 

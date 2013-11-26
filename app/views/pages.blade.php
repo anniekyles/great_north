@@ -29,7 +29,7 @@
 			{{ Form::open(array('url' => 'pages/'.$page->id, 'method' => 'put', "files"=>true)) }}
 			<br>
 			{{ Form::file("image") }}
-			{{ Form::submit('Upload Photo', array('id' => 'submit')) }}
+			{{ Form::submit('Upload', array('id' => 'submit')) }}
 			{{ Form::close() }}
 	@endif
     <p class="edit" {{ $authCanEditCaption }} >{{{ $page->caption }}}</p>

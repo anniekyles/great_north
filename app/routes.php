@@ -17,6 +17,7 @@ Route::get('/', function(){
 //________________________________CONTENT ROUTES_____________________________________
 
 
+
 Route::get('pages/create', function(){
 	return View::make('pageCreate');
 })->before('admin.permission');

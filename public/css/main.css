@@ -173,6 +173,10 @@ nav>ul {
     /*border:1px red solid;*/
 }
 
+nav li {
+    /*border: 1px red solid;*/
+}
+
 #extra-services {
     display: none;
     /*visibility: hidden;*/

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2013 at 03:00 AM
+-- Generation Time: Nov 26, 2013 at 03:02 AM
 -- Server version: 5.6.11
 -- PHP Version: 5.5.1
 
@@ -39,22 +39,21 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `deleted_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `pages`
 --
 
 INSERT INTO `pages` (`id`, `title`, `content`, `image`, `caption`, `services`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Home', '\n    \n    \n    <h1>Weeeelcome to Great North Auto</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec.</p><h2>What we do best is what you<span style="background-color: rgb(255, 255, 255);"> need </span>most</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.</p>', 'image_1.jpg', 'This is a placeholder caption', '0', '2013-11-25 01:41:20', '2013-11-24 12:16:07', '0000-00-00 00:00:00'),
+(1, 'Home', '\n    <h1>Welcome to Great North Auto</h1><p>We take care of you and your vehicle, taking the worry out of keeping your it up to scratch. We have an established reputation and only have fully qualified mechanics working on your vehicle.</p><h2>What we do best is what you need most</h2><p>With a high number of cars that come in and out of our doors weekly we have excellent diagnostic abilities for common problems and are able to spot inconsistencies in the way your vehicle is running before the cost mounts up. Our specialities include Warrant of Fitness, Vehicle Servicing and Brakes.</p>', 'image_1.jpg', 'Our workshop on Great North Road', '0', '2013-11-26 01:22:01', '2013-11-25 12:22:01', '0000-00-00 00:00:00'),
 (2, 'About', 'About us', 'image_2.jpg', 'This is a placeholder caption', '0', '2013-11-25 01:41:41', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3, 'Overview', 'Overview of our services', 'image_3.jpg', 'This is a placeholder caption', '1', '2013-11-25 01:41:57', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, 'Overview', 'Great North Auto is a fully equipped workshop that keeps up to date with diagnostic tools and new technologies. We believe car ownership should be a hassle free experience. We strive to ensure you have a reliable service that prevents avoidable breakdowns and problems. We do this using scheduled maintenance services.', 'image_3.jpg', 'This is a placeholder caption', '1', '2013-11-26 02:01:58', '2013-11-25 13:01:58', '0000-00-00 00:00:00'),
 (4, 'Warrant of Fitness', 'Talking about Warrant of Fitness', 'image_4.jpg', 'This is a placeholder caption', '1', '2013-11-25 01:42:08', '2013-11-21 11:41:18', '0000-00-00 00:00:00'),
 (5, 'Vehicle Servicing', 'Talking about Servicing', 'image_5.jpg', 'This is a placeholder caption', '1', '2013-11-25 01:42:15', '2013-11-21 11:41:45', '0000-00-00 00:00:00'),
 (6, 'Brakes', 'Talking about Tyres', 'image_6.jpg', 'This is a placeholder caption', '1', '2013-11-25 01:42:23', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (7, 'Battery', 'Talking about Battery', 'image_7.jpg', 'This is a placeholder caption', '1', '2013-11-25 01:42:29', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(8, 'Exhaust & Muffler', 'Talking about Exhaust & Muffler', 'image_8.jpg', 'This is a placeholder caption', '1', '2013-11-25 01:45:07', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(12, 'Things', 'dsssssddddddddddddddddd', 'image_12.jpg', 'dddssdsd', '0', '2013-11-25 01:48:43', '2013-11-24 12:48:43', '0000-00-00 00:00:00');
+(8, 'Exhaust & Muffler', 'Talking about Exhaust & Muffler', 'image_8.jpg', 'This is a placeholder caption', '1', '2013-11-25 01:45:07', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 

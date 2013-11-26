@@ -24,10 +24,7 @@
 	{{ Form::text('caption') }}
 	{{ $errors->first('caption','<p class="error">:message</p>') }}
 
-	{{ Form::label('services', 'Does this page come under Services?') }}
-	{{ Form::select('services', array('1' => 'Yes', '0' => 'No'), '1') }}
-	{{ $errors->first('services','<p class="error">:message</p>') }}
-
+	{{ Form::hidden('services', '1') }}
 
 	<br class="group" />
 	{{ Form::reset('Reset') }}

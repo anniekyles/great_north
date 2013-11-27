@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2013 at 03:02 AM
+-- Generation Time: Nov 27, 2013 at 03:01 AM
 -- Server version: 5.6.11
 -- PHP Version: 5.5.1
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `deleted_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `pages`
@@ -53,7 +53,7 @@ INSERT INTO `pages` (`id`, `title`, `content`, `image`, `caption`, `services`, `
 (5, 'Vehicle Servicing', 'Talking about Servicing', 'image_5.jpg', 'This is a placeholder caption', '1', '2013-11-25 01:42:15', '2013-11-21 11:41:45', '0000-00-00 00:00:00'),
 (6, 'Brakes', 'Talking about Tyres', 'image_6.jpg', 'This is a placeholder caption', '1', '2013-11-25 01:42:23', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (7, 'Battery', 'Talking about Battery', 'image_7.jpg', 'This is a placeholder caption', '1', '2013-11-25 01:42:29', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(8, 'Exhaust & Muffler', 'Talking about Exhaust & Muffler', 'image_8.jpg', 'This is a placeholder caption', '1', '2013-11-25 01:45:07', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(8, 'Exhaust & Muffler', 'Clean and unobstructed emissions indicates that the engine is running smoothly, is quieter and more efficient. As we are committed to respect for the environment, it''s part of our normal routine to run an emissions test during your service. We will also check to see if your system has an exhaust leak. There are carbon monoxide fumes in the emissions that could be toxic to you and your passengers if there is a leak into the cabin of the vehicle.<div><br></div><div>If you are worried about your exhaust and muffler in between times drop in and we can take a quick look free of charge.</div>', 'image_8.jpg', 'This is a placeholder caption', '1', '2013-11-27 02:00:27', '2013-11-26 13:00:27', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 

@@ -10,7 +10,7 @@
 <article class="col2">
 
     <h2>Fill in the form to send us an email</h2>
-    {{ Form::open(array('url' => 'contact')) }}
+    {{ Form::open(array('url' => 'pages/contact')) }}
 
     {{ Form::label('name', 'Your Name '), $errors->first('name','<span class="error">:message</p>') }}
     {{ Form::text('name', null, array('placeholder'=>'Enter your full name')) }}
@@ -21,8 +21,8 @@
     {{ Form::label('subject', 'Subject '), $errors->first('subject','<span class="error">:message</p>') }}
     {{ Form::text('subject', null, array('placeholder'=>'The email\'s subject')) }}
     <br>
-    {{ Form::label('message', 'Message '), $errors->first('message','<p class="error">:message</p>') }}
-    {{ Form::textarea('message', null, array('placeholder'=>'The email\'s message')) }}
+    {{ Form::label('email_message', 'Message '), $errors->first('email_message','<p class="error">:message</p>') }}
+    {{ Form::textarea('email_message', null, array('placeholder'=>'The email\'s message')) }}
     <br>
     {{ Form::reset('Reset') }}
     {{ Form::submit('Send', array('id' => 'submit')) }}

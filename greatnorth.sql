@@ -19,8 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `greatnorth`
 --
-CREATE DATABASE IF NOT EXISTS `greatnorth` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `greatnorth`;
+-- CREATE DATABASE IF NOT EXISTS `greatnorth` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+-- USE `greatnorth`;
 
 -- --------------------------------------------------------
 

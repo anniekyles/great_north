@@ -52,6 +52,32 @@ return array(
 			'prefix'   => '',
 		),
 
+        // GoDaddy server
+		// 'mysql' => array(
+		// 	'driver'    => 'mysql',
+		// 	'host'      => 'localhost',
+		// 	'database'  => 'AnnieGreatNorth',
+		// 	'username'  => 'AnnieGreatNorth',
+		// 	// cheese!
+		// 	'password'  => '',
+		// 	'charset'   => 'utf8',
+		// 	'collation' => 'utf8_unicode_ci',
+		// 	'prefix'    => '',
+		// ),
+
+		// Steve's server
+		// 'mysql' => array(
+		// 	'driver'    => 'mysql',
+		// 	'host'      => 'localhost',
+		// 	'database'  => 'annakyle_greatnorth',
+		// 	'username'  => 'annakyle_CMS',
+		// 	'password'  => 'CMSCMS',
+		// 	'charset'   => 'utf8',
+		// 	'collation' => 'utf8_unicode_ci',
+		// 	'prefix'    => '',
+		// ),
+
+		// XAMPP localhost
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',

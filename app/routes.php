@@ -11,7 +11,7 @@
 |
 */
 Route::get('/', function(){
-	return View::make('pages')->with('page',Page::find(2));
+	return View::make('pages')->with('page',Page::find(1));
 });
 
 //________________________________CONTENT ROUTES_____________________________________
@@ -50,8 +50,48 @@ Route::get('pages/contact', function(){
 
 Route::post('pages/contact', function(){
 
-	//change this to an email confirmation page when one is made
-	return Redirect::to('pages/1');
+		$aRules = array(
+		// 'title'=>'required|unique:pages',
+		// 'content'=>'required',
+		// 'photo'=>'required',
+		// 'caption'=>'required',
+		);
+	$validator = Validator::make(Input::all(),$aRules);
+
+	if($validator->fails()){
+		return Redirect::to('pages/contact')->withErrors($validator)->withInput();;
+	} else {
+		//create email
+
+
+
+
+		// $data = array(
+		// 	"email_message"=>"Bla",
+		//	"name"=>"Pete",
+		// );
+
+		$data = Input::all();
+
+
+		Mail::send('contactEmail', $data, function($message) use ($data)
+		{
+			$message->from($data["email"],$data["name"]);
+		    	$message->to("annie.c.kyles@gmail.com", "Annie")->subject($data["subject"]);
+		});
+
+
+
+
+
+
+		return Redirect::to('pages/contactConfirm');
+	}
+
+});
+
+Route::get('pages/contactConfirm', function(){
+	return View::make('contactConfirm');
 });
 
 Route::get('pages/{id}', function($id){

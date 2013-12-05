@@ -55,7 +55,7 @@ return array(
         // GoDaddy server
 		// 'mysql' => array(
 		// 	'driver'    => 'mysql',
-		// 	'host'      => 'localhost',
+		// 	'host'      => 'AnnieGreatNorth.db.11834613.hostedresource.com',
 		// 	'database'  => 'AnnieGreatNorth',
 		// 	'username'  => 'AnnieGreatNorth',
 		// 	// cheese!

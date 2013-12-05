@@ -10,17 +10,55 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+
 Route::get('/', function(){
 	return View::make('pages')->with('page',Page::find(1));
 });
 
+//_________________________________CONTACTING (EMAIL)____________________________
+
+
+Route::get('pages/contact', function(){
+	return View::make('contact');
+});
+
+
+Route::post('pages/contact', function(){
+
+		$aRules = array(
+			'name'=>'required',
+			'email'=>'required|email',
+			'subject'=>'required',
+			'email_message'=>'required',
+		);
+	$validator = Validator::make(Input::all(),$aRules);
+
+	if($validator->fails()){
+		return Redirect::to('pages/contact')->withErrors($validator)->withInput();;
+	} else {
+		$data = Input::all();
+		Mail::send('contactEmail', $data, function($message) use ($data)
+		{
+			$message->from($data["email"],$data["name"]);
+		    $message->to("annie.c.kyles@gmail.com", "Annie")->subject($data["subject"]);
+		});
+		return Redirect::to('pages/contactConfirm');
+	}
+});
+
+
+Route::get('pages/contactConfirm', function(){
+	return View::make('contactConfirm');
+});
+
+
+
 //________________________________CONTENT ROUTES_____________________________________
-
-
 
 Route::get('pages/create', function(){
 	return View::make('pageCreate');
 })->before('admin.permission');
+
 
 Route::post('pages', function(){
 	$aRules = array(
@@ -44,79 +82,33 @@ Route::post('pages', function(){
 	}
 });
 
-Route::get('pages/contact', function(){
-	return View::make('contact');
-});
-
-Route::post('pages/contact', function(){
-
-		$aRules = array(
-		// 'title'=>'required|unique:pages',
-		// 'content'=>'required',
-		// 'photo'=>'required',
-		// 'caption'=>'required',
-		);
-	$validator = Validator::make(Input::all(),$aRules);
-
-	if($validator->fails()){
-		return Redirect::to('pages/contact')->withErrors($validator)->withInput();;
-	} else {
-		//create email
-
-
-
-
-		// $data = array(
-		// 	"email_message"=>"Bla",
-		//	"name"=>"Pete",
-		// );
-
-		$data = Input::all();
-
-
-		Mail::send('contactEmail', $data, function($message) use ($data)
-		{
-			$message->from($data["email"],$data["name"]);
-		    	$message->to("annie.c.kyles@gmail.com", "Annie")->subject($data["subject"]);
-		});
-
-
-
-
-
-
-		return Redirect::to('pages/contactConfirm');
-	}
-
-});
-
-Route::get('pages/contactConfirm', function(){
-	return View::make('contactConfirm');
-});
-
 Route::get('pages/{id}', function($id){
 	return View::make('pages')->with('page',Page::find($id));
 });
 
+
 Route::put('pages/{id}', function($id){
-
 	$oPage = Page::find($id);
-	if(Input::hasFile("image")){
+	if(Input::has("file_upload")){
+		if(Input::hasFile("image")){
+			$aRules = array(
+				'image'=>'max:200',
+			);
+			$validator = Validator::make(Input::all(),$aRules);
+			if($validator->passes()){
+				Input::file('image')->move("img", $oPage->image);
+			}
+		}
 
-		Input::file('image')->move("img", $oPage->image);
 		return Redirect::to('pages/'.$id);
 	}else{
 		$updatedField = Input::get("field");
-
 		$oPage->$updatedField = Input::get("value");
 		$oPage->save();
-
 		return Input::get("value");
-
 	}
-
-
 });
+
 
 //________________________________USER ROUTES_____________________________________
 
@@ -147,7 +139,5 @@ Route::get('logout',function(){
 	Auth::logout();
 	return Redirect::to('pages/1');
 });
-
-//_________________________________CONTACTING (EMAIL)____________________________
 
 
